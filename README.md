@@ -46,7 +46,6 @@ Detects the **top 100 fraud patterns** in transaction notes using **on-device pr
 
 ## Contact (Acquisition / Integration)
 **Email:** info@cogninaut.com  
-**X:** [@CogninautLabs](https://x.com/CogninautLabs)
 
 ---
 
