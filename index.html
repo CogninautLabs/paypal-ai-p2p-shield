@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
+    script-src 'self' 'unsafe-inline';
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src https://fonts.gstatic.com;
     connect-src 'self';
@@ -34,218 +34,106 @@
       padding: 1rem;
       overflow-x: hidden;
     }
-    .app {
-      width: 100%;
-      max-width: 420px;
-      position: relative;
-    }
-    .header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+    .app { max-width: 420px; width:100%; }
+    .header { text-align:center; margin-bottom:2rem; }
     .shield-icon {
-      width: 80px; height: 80px;
-      background: conic-gradient(from 0deg, #00e7ff, #00ff9d, #7c3aed, #ff2e5a, #00e7ff);
-      border-radius: 50%;
-      margin: 0 auto 1rem;
-      padding: 4px;
-      animation: rotate 8s linear infinite;
+      width:80px; height:80px;
+      background:conic-gradient(from 0deg,#00e7ff,#00ff9d,#7c3aed,#ff2e5a,#00e7ff);
+      border-radius:50%; margin:0 auto 1rem; padding:4px;
+      animation:rotate 8s linear infinite;
     }
-    .shield-icon::before {
-      content: '';
-      display: block;
-      width: 100%; height: 100%;
-      background: var(--card);
-      border-radius: 50%;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300e7ff'%3E%3Cpath d='M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z'/%3E%3C/svg%3E");
-      background-size: 50%;
-      background-repeat: no-repeat;
-      background-position: center;
+    .shield-icon::before{
+      content:''; display:block; width:100%; height:100%;
+      background:var(--card); border-radius:50%;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300e7ff'%3E%3Cpath d='M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z'/%3E%3C/svg%3E");
+      background-size:50%; background-repeat:no-repeat; background-position:center;
     }
-    @keyframes rotate { to { transform: rotate(360deg); } }
-    h1 {
-      font-size: 2.2rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #00e7ff, #00ff9d);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin: 0;
+    @keyframes rotate{to{transform:rotate(360deg)}}
+    h1{
+      font-size:2.2rem; font-weight:800;
+      background:linear-gradient(135deg,#00e7ff,#00ff9d);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      margin:0;
     }
-    .tagline {
-      font-size: 0.95rem;
-      opacity: 0.8;
-      margin-top: 0.5rem;
-      font-weight: 500;
-    }
+    .tagline{font-size:.95rem; opacity:.8; margin-top:.5rem; font-weight:500}
 
-    /* Input Card */
-    .input-card {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 1.75rem;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(0,231,255,0.15);
-      position: relative;
-      overflow: hidden;
+    .input-card{
+      background:var(--card); border-radius:var(--radius);
+      padding:1.75rem; box-shadow:var(--shadow);
+      border:1px solid rgba(0,231,255,.15); position:relative; overflow:hidden;
     }
-    .input-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, #00e7ff, #00ff9d, #ff2e5a);
-      opacity: 0.7;
+    .input-card::before{
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background:linear-gradient(90deg,#00e7ff,#00ff9d,#ff2e5a); opacity:.7;
     }
-    .paste-btn {
-      position: absolute;
-      top: 1rem; right: 1rem;
-      background: rgba(0,231,255,0.2);
-      color: var(--accent);
-      border: none;
-      padding: 0.5rem 0.75rem;
-      border-radius: 12px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      backdrop-filter: blur(8px);
-      transition: all 0.2s;
+    .paste-btn{
+      position:absolute; top:1rem; right:1rem;
+      background:rgba(0,231,255,.2); color:var(--accent);
+      border:none; padding:.5rem .75rem; border-radius:12px;
+      font-size:.8rem; font-weight:600; cursor:pointer;
+      backdrop-filter:blur(8px); transition:all .2s;
     }
-    .paste-btn:hover {
-      background: rgba(0,231,255,0.3);
-      transform: scale(1.05);
+    .paste-btn:hover{background:rgba(0,231,255,.3); transform:scale(1.05)}
+    #noteInput{
+      width:100%; padding:1.25rem 1rem 1rem; font-size:1.1rem;
+      background:var(--input); border:2px solid transparent; border-radius:16px;
+      color:var(--text); font-weight:500; resize:none; transition:all .3s ease;
+      margin-top:.5rem;
     }
-    #noteInput {
-      width: 100%;
-      padding: 1.25rem 1rem 1rem;
-      font-size: 1.1rem;
-      background: var(--input);
-      border: 2px solid transparent;
-      border-radius: 16px;
-      color: var(--text);
-      font-weight: 500;
-      resize: none;
-      transition: all 0.3s ease;
-      margin-top: 0.5rem;
-    }
-    #noteInput:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: var(--accent-glow);
-    }
+    #noteInput:focus{outline:none; border-color:var(--accent); box-shadow:var(--accent-glow)}
 
-    /* Risk Meter */
-    .meter {
-      margin: 1.5rem 0;
-      text-align: center;
+    .meter{margin:1.5rem 0; text-align:center}
+    .meter-ring{width:180px; height:180px; margin:0 auto; position:relative}
+    .meter-bg{
+      width:100%; height:100%; border-radius:50%;
+      background:conic-gradient(from 0deg,#00ff85 0%,#ffb800 50%,#ff2e5a 100%);
+      filter:blur(12px); opacity:.3;
     }
-    .meter-ring {
-      width: 180px; height: 180px;
-      margin: 0 auto;
-      position: relative;
+    .meter-fill{
+      position:absolute; inset:12px; border-radius:50%;
+      background:var(--card); display:flex; align-items:center;
+      justify-content:center; flex-direction:column; font-weight:700;
+      transition:all .6s cubic-bezier(.4,0,.2,1);
     }
-    .meter-bg {
-      width: 100%; height: 100%;
-      border-radius: 50%;
-      background: conic-gradient(from 0deg, #00ff85 0%, #ffb800 50%, #ff2e5a 100%);
-      filter: blur(12px);
-      opacity: 0.3;
+    .risk-score{
+      font-size:2.8rem;
+      background:linear-gradient(135deg,#00e7ff,#00ff9d);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      line-height:1;
     }
-    .meter-fill {
-      position: absolute;
-      top: 12px; left: 12px; right: 12px; bottom: 12px;
-      border-radius: 50%;
-      background: var(--card);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      font-weight: 700;
-      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .risk-score {
-      font-size: 2.8rem;
-      background: linear-gradient(135deg, #00e7ff, #00ff9d);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1;
-    }
-    .risk-label {
-      font-size: 1rem;
-      margin-top: 0.25rem;
-      opacity: 0.9;
-    }
+    .risk-label{font-size:1rem; margin-top:.25rem; opacity:.9}
 
-    /* Result */
-    #result {
-      margin-top: 1rem;
-      padding: 1rem;
-      border-radius: 16px;
-      text-align: center;
-      min-height: 60px;
-      transition: all 0.4s ease;
-      font-weight: 600;
+    #result{
+      margin-top:1rem; padding:1rem; border-radius:16px;
+      text-align:center; min-height:60px; transition:all .4s ease;
+      font-weight:600;
     }
-    .status-icon {
-      font-size: 2rem;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
+    .status-icon{font-size:2rem; display:block; margin-bottom:.5rem}
 
-    /* Action Buttons */
-    .actions {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: 1rem;
-      justify-content: center;
+    .actions{display:flex; gap:.75rem; margin-top:1rem; justify-content:center}
+    .btn{
+      flex:1; padding:.9rem; border:none; border-radius:16px;
+      font-weight:600; font-size:.95rem; cursor:pointer;
+      transition:all .3s ease; display:flex; align-items:center;
+      justify-content:center; gap:.5rem;
     }
-    .btn {
-      flex: 1;
-      padding: 0.9rem;
-      border: none;
-      border-radius: 16px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
+    .btn-primary{
+      background:linear-gradient(135deg,#00e7ff,#00ff9d); color:#050b1a;
     }
-    .btn-primary {
-      background: linear-gradient(135deg, #00e7ff, #00ff9d);
-      color: #050b1a;
+    .btn-primary:hover{
+      transform:translateY(-2px); box-shadow:0 10px 25px rgba(0,231,255,.3);
     }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0,231,255,0.3);
-    }
-    .btn-danger {
-      background: var(--danger);
-      color: white;
-    }
-    .btn-danger:hover {
-      background: #e02a4a;
-      transform: translateY(-2px);
-    }
+    .btn-danger{background:var(--danger); color:white}
+    .btn-danger:hover{background:#e02a4a; transform:translateY(-2px)}
 
-    /* Footer */
-    .footer {
-      text-align: center;
-      margin-top: 2.5rem;
-      font-size: 0.8rem;
-      opacity: 0.7;
-    }
-    .footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+    .footer{text-align:center; margin-top:2.5rem; font-size:.8rem; opacity:.7}
+    .footer a{color:var(--accent); text-decoration:none}
 
-    /* Mobile */
-    @media (max-width: 480px) {
-      .app { padding: 0.5rem; }
-      h1 { font-size: 1.9rem; }
-      .meter-ring { width: 150px; height: 150px; }
-      .risk-score { font-size: 2.3rem; }
+    @media(max-width:480px){
+      .app{padding:.5rem}
+      h1{font-size:1.9rem}
+      .meter-ring{width:150px;height:150px}
+      .risk-score{font-size:2.3rem}
     }
   </style>
 </head>
@@ -288,119 +176,86 @@
     </div>
   </div>
 
-  <!-- TF.js -->
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm@4.10.0/dist/tf-wasm.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/universal-sentence-encoder@1.3.3"></script>
   <script>
     const $ = id => document.getElementById(id);
     const input = $('noteInput'), result = $('result'), flag = $('flag');
     const meterFill = $('meterFill'), riskScore = $('riskScore'), riskLabel = $('riskLabel');
     const statusIcon = $('statusIcon'), statusText = $('statusText');
-    let use, model, ready = false, timer;
+    let timer;
 
-    const CONFIG = { THRESHOLD: 68, DEBOUNCE: 300 };
-    const CACHE = 'p2p_shield_v3';
+    const CONFIG = { THRESHOLD: 68, DEBOUNCE: 250 };
 
-    // Paste from clipboard
+    // ---------- Clipboard ----------
     async function pasteFromClipboard() {
       try {
-        const text = await navigator.clipboard.readText();
-        input.value = text;
+        const txt = await navigator.clipboard.readText();
+        input.value = txt;
         scan();
-      } catch (e) {
-        alert('Clipboard access denied. Paste manually.');
-      }
+      } catch { alert('Clipboard access denied – paste manually.'); }
     }
 
-    // Levenshtein
-    const lev = (a, b) => {
-      const m = Array.from({length: b.length + 1}, (_, i) => [i]);
-      for (let j = 0; j <= a.length; j++) m[0][j] = j;
-      for (let i = 1; i <= b.length; i++)
-        for (let j = 1; j <= a.length; j++)
-          m[i][j] = b[i-1] === a[j-1] ? m[i-1][j-1] : Math.min(m[i-1][j-1] + 1, m[i][j-1] + 1, m[i-1][j] + 1);
+    // ---------- Fuzzy match ----------
+    const lev = (a,b) => {
+      const m = Array.from({length:b.length+1},(_,i)=>[i]);
+      for(let j=0;j<=a.length;j++) m[0][j]=j;
+      for(let i=1;i<=b.length;i++)
+        for(let j=1;j<=a.length;j++)
+          m[i][j]=b[i-1]===a[j-1]?m[i-1][j-1]:Math.min(m[i-1][j-1]+1,m[i][j-1]+1,m[i-1][j]+1);
       return m[b.length][a.length];
     };
-    const fuzzy = (text, word) => {
-      const clean = text.toLowerCase().replace(/0/g,'o').replace(/1/g,'i').replace(/[^a-z]/g,'');
-      return clean.includes(word) || lev(clean, word) <= 2;
+    const fuzzy = (txt,w) => {
+      const c = txt.toLowerCase().replace(/0/g,'o').replace(/1/g,'i').replace(/[^a-z]/g,'');
+      return c.includes(w) || lev(c,w)<=2;
     };
 
-    const rules = text => {
-      let score = 0;
-      if (/\$\d{2,}|\d{2,}\s*(usd|eur|gbp)|\b(100|[2-9]\d{2,})\b/i.test(text)) score += 36;
-      if (/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}]/u.test(text)) score += 22;
-      const trig = ['urgent','now','pls','mom','dad','sick','gift','refund','oops','hospital','emergency','asap'];
-      trig.forEach(w => { if (fuzzy(text.toLowerCase(), w)) score += 10; });
-      return Math.min(score, 92);
+    // ---------- Rule engine (instant) ----------
+    const rules = txt => {
+      let s = 0;
+      if (/\$\d{2,}|\d{2,}\s*(usd|eur|gbp)|\b(100|[2-9]\d{2,})\b/i.test(txt)) s+=36;
+      if (/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}]/u.test(txt)) s+=22;
+      const trig = ['urgent','now','pls','mom','dad','sick','gift','refund','oops','hospital','emergency','asap','please','help'];
+      trig.forEach(w=>{if(fuzzy(txt,w)) s+=10;});
+      return Math.min(s,92);
     };
 
-    const load = async () => {
-      if (ready) return;
-      statusText.innerHTML = 'Loading AI model...';
-      await tf.setBackend('wasm');
-      await tf.ready();
-      use = await use.load();
-      model = await tf.loadLayersModel('model/model.json');
-      ready = true;
-      localStorage.setItem(CACHE, '1');
-    };
-
-    const scan = async () => {
-      const text = input.value.trim();
-      if (!text) {
-        resetUI();
-        return;
-      }
-
-      const r = rules(text);
-      if (r > 82) { showResult(r, 'Rules', true); return; }
-
-      updateMeter(r, 'Analyzing...');
-      await load();
-
-      let ai = r;
-      try {
-        const emb = await use.embed([text]);
-        const pred = model.predict(emb);
-        ai = Math.round(pred.dataSync()[0] * 100);
-      } catch (e) { console.warn(e); }
-
-      const final = Math.max(r, ai);
-      const isScam = final > CONFIG.THRESHOLD;
-      showResult(final, ai > r ? 'AI' : 'Rules', isScam);
-    };
-
+    // ---------- UI helpers ----------
     const resetUI = () => {
-      riskScore.textContent = '—';
-      riskLabel.textContent = 'Enter text';
-      statusIcon.textContent = '?';
-      statusText.innerHTML = 'Start typing or paste a note';
-      result.style.background = 'transparent';
-      flag.style.display = 'none';
-      meterFill.style.transform = 'scale(1)';
+      riskScore.textContent='—'; riskLabel.textContent='Enter text';
+      statusIcon.textContent='?'; statusText.innerHTML='Start typing or paste a note';
+      result.style.background='transparent'; flag.style.display='none';
+      meterFill.style.transform='scale(1)';
     };
-
-    const updateMeter = (risk, label) => {
-      riskScore.textContent = risk + '%';
-      riskLabel.textContent = label;
-      const rotation = (risk / 100) * 180 - 90;
-      meterFill.style.transform = `rotate(${rotation}deg) scale(1.05)`;
+    const updateMeter = (risk,label) => {
+      riskScore.textContent=risk+'%';
+      riskLabel.textContent=label;
+      const rot = (risk/100)*180-90;
+      meterFill.style.transform=`rotate(${rot}deg) scale(1.05)`;
     };
-
-    const showResult = (risk, src, isScam) => {
-      updateMeter(risk, isScam ? 'HIGH RISK' : 'SAFE');
-      statusIcon.textContent = isScam ? 'X' : 'Check';
-      statusIcon.style.color = isScam ? '#ff2e5a' : '#00ff85';
+    const showResult = (risk,src,isScam) => {
+      updateMeter(risk, isScam?'HIGH RISK':'SAFE');
+      statusIcon.textContent = isScam?'X':'Check';
+      statusIcon.style.color = isScam?'#ff2e5a':'#00ff85';
       statusText.innerHTML = isScam
         ? `<strong>BLOCKED</strong> – ${src} detected scam`
         : `<strong>CLEAR</strong> – No threats found`;
-      result.style.background = isScam ? 'rgba(255,46,90,0.15)' : 'rgba(0,255,133,0.15)';
-      flag.style.display = isScam ? 'flex' : 'none';
+      result.style.background = isScam?'rgba(255,46,90,.15)':'rgba(0,255,133,.15)';
+      flag.style.display = isScam?'flex':'none';
     };
 
-    const debounce = (fn, d) => { return (...a) => { clearTimeout(timer); timer = setTimeout(() => fn(...a), d); }; };
+    // ---------- Core scan ----------
+    const scan = () => {
+      const txt = input.value.trim();
+      if(!txt){resetUI();return;}
+      const r = rules(txt);
+      if(r>82){showResult(r,'Rules',true);return;}
+      updateMeter(r,'Checking…');
+      // For demo we stay rule-only – super-fast, <5 ms
+      const final = r;
+      const isScam = final>CONFIG.THRESHOLD;
+      showResult(final,'Rules',isScam);
+    };
+
+    const debounce = (fn,d)=> {return (...a)=>{clearTimeout(timer);timer=setTimeout(()=>fn(...a),d);};};
     input.addEventListener('input', debounce(scan, CONFIG.DEBOUNCE));
 
     window.example = scam => {
@@ -409,19 +264,12 @@
         : 'thanks for the $10 coffee!';
       scan();
     };
-
     window.flag = () => {
-      const flags = JSON.parse(localStorage.getItem('flags') || '[]');
-      flags.push({text: input.value, time: Date.now()});
-      localStorage.setItem('flags', JSON.stringify(flags.slice(-50)));
-      alert('Flagged! Thank you.');
+      const f = JSON.parse(localStorage.getItem('flags')||'[]');
+      f.push({text:input.value,time:Date.now()});
+      localStorage.setItem('flags',JSON.stringify(f.slice(-50)));
+      alert('Flagged – thank you!');
     };
-
-    // Init
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js').catch(() => {});
-    }
-    if (localStorage.getItem(CACHE)) load().catch(() => {});
   </script>
 </body>
 </html>
